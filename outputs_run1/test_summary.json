@@ -1,0 +1,8 @@
+{
+  "test_accuracy": 0.9082,
+  "test_loss": 0.2024,
+  "macro_f1": 0.811,
+  "test_images": 7383,
+  "wrong_predictions": 678,
+  "model_epoch": 40
+}

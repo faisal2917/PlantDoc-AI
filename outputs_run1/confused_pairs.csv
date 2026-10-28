@@ -1,0 +1,41 @@
+true,predicted,count,share_of_true_class
+Peach: Bacterial spot,Peach,120,0.9448818897637795
+Tomato,Tomato: Yellow Leaf Curl Virus,67,0.9852941176470589
+Apple: healthy,Apple,62,0.49206349206349204
+Grape,Grape: Esca,62,0.4806201550387597
+Potato,Potato: Late blight,57,0.5428571428571428
+Apple,Apple: healthy,55,0.46218487394957986
+Potato,Potato: Early blight,45,0.42857142857142855
+Grape,Grape: Black rot,36,0.27906976744186046
+Strawberry,Strawberry: Leaf scorch,36,1.0
+Grape,Grape: Leaf blight,30,0.23255813953488372
+Corn,Corn: healthy,29,0.48333333333333334
+Corn,Corn: Common rust,26,0.43333333333333335
+Potato: Late blight,Potato,6,0.061224489795918366
+Corn,Corn: Northern Leaf Blight,5,0.08333333333333333
+Corn: Northern Leaf Blight,Corn: Gray leaf spot,5,0.035211267605633804
+Corn: Gray leaf spot,Corn: Northern Leaf Blight,4,0.05194805194805195
+Peach,Peach: Bacterial spot,4,0.01834862385321101
+Strawberry: healthy,Blueberry,3,0.04411764705882353
+Apple,Blueberry,2,0.01680672268907563
+Apple: healthy,Cherry: healthy,2,0.015873015873015872
+Grape: Esca,Grape,2,0.014705882352941176
+Tomato: Target Spot,Tomato: Early blight,2,0.009478672985781991
+Apple,Tomato: Spider mites,1,0.008403361344537815
+Apple: Scab,Peach,1,0.010526315789473684
+Apple: healthy,Blueberry,1,0.007936507936507936
+Cherry: healthy,Pepper: healthy,1,0.007751937984496124
+Cherry: healthy,Soybean,1,0.007751937984496124
+Orange,Cherry: healthy,1,0.0017421602787456446
+Potato: Early blight,Potato,1,0.01020408163265306
+Potato: Late blight,Tomato: Late blight,1,0.01020408163265306
+Tomato,Tomato: Spider mites,1,0.014705882352941176
+Tomato: Early blight,Tomato: Bacterial spot,1,0.006666666666666667
+Tomato: Early blight,Tomato: Target Spot,1,0.006666666666666667
+Tomato: Late blight,Peach,1,0.0035087719298245615
+Tomato: Septoria leaf spot,Tomato: Early blight,1,0.0037593984962406013
+Tomato: Septoria leaf spot,Tomato: Late blight,1,0.0037593984962406013
+Tomato: Spider mites,Tomato: Target Spot,1,0.00398406374501992
+Tomato: Spider mites,Tomato: Yellow Leaf Curl Virus,1,0.00398406374501992
+Tomato: Yellow Leaf Curl Virus,Tomato: Leaf Mold,1,0.0022222222222222222
+Tomato: healthy,Grape: Esca,1,0.004201680672268907
