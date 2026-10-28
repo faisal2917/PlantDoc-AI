@@ -13,7 +13,13 @@ __pycache__/
 data/
 models/*.pt
 models/*.json
-outputs/
+outputs/*
+# ...except what the deployed Streamlit app needs
+!models/plantdoc_cnn.pt
+!models/class_names.json
+!outputs/test_summary.json
+!outputs/classification_report.csv
+!outputs/confusion_matrix.csv
 
 # Editor / OS files
 .vscode/

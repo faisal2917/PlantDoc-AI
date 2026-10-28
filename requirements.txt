@@ -1,3 +1,5 @@
+# CPU-only PyTorch wheels (the default Linux wheels bundle ~2 GB of CUDA libraries)
+--extra-index-url https://download.pytorch.org/whl/cpu
 torch>=2.2
 torchvision>=0.17
 numpy
