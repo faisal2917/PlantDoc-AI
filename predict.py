@@ -9,6 +9,7 @@ import argparse
 import sys
 from pathlib import Path
 
+import numpy as np
 import pandas as pd
 import torch
 from PIL import Image, UnidentifiedImageError
@@ -41,6 +42,28 @@ class Predictor:
         probs = torch.softmax(self.model(tensor), dim=1)[0].cpu()
         top_probs, top_ids = probs.topk(min(top_k, len(self.class_names)))
         return [(self.class_names[int(i)], float(p)) for p, i in zip(top_probs, top_ids)]
+
+    def heatmap(self, image: Image.Image, class_name: str) -> np.ndarray:
+        """
+        Grad-CAM: which parts of the image pushed the model towards `class_name`.
+        Returns a (height, width) array in [0, 1] at the model's input size; 1 = most important.
+        """
+        target_layer = self.model.features[-1].block[5]  # last ReLU before the final pooling (8x8 for 128 input)
+        captured = {}
+        hook = target_layer.register_forward_hook(lambda _m, _i, output: captured.update(act=output))
+        try:
+            with torch.enable_grad():
+                tensor = self.transform(image.convert("RGB")).unsqueeze(0).to(self.device)
+                score = self.model(tensor)[0, self.class_names.index(class_name)]
+                (grads,) = torch.autograd.grad(score, captured["act"])
+        finally:
+            hook.remove()
+
+        weights = grads.mean(dim=(2, 3), keepdim=True)  # how much each channel matters for this class
+        cam = torch.relu((weights * captured["act"]).sum(dim=1, keepdim=True))
+        cam = torch.nn.functional.interpolate(cam, size=tensor.shape[-2:], mode="bilinear", align_corners=False)
+        cam = cam[0, 0].detach().cpu().numpy()
+        return cam / cam.max() if cam.max() > 0 else cam
 
 
 def open_image(path: Path) -> Image.Image:

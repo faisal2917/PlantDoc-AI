@@ -105,7 +105,17 @@ Web app:
 streamlit run app.py
 ```
 
-Opens at http://localhost:8501. Upload a JPG or PNG to see the prediction, confidence, and top three classes.
+Opens at http://localhost:8501. Upload a JPG or PNG, take a photo with your camera, or pick a random test-set image. Each result shows:
+
+- the plant, condition, cause (scientific name), type (fungal, bacterial, viral, pest) and typical impact
+- confidence, the runner-up class, and the top predictions (3 to 10, set in the sidebar)
+- symptoms, what makes it spread, treatment and prevention (for healthy leaves: care tips and what to watch for)
+- a Grad-CAM heatmap of the parts of the photo that drove the prediction
+- how reliable that class was on the test set (precision, recall, and which classes were mistaken for it)
+- photo checks for resolution, brightness, blur and how much of the frame the leaf fills
+- a downloadable Markdown report
+
+The disease information lives in `src/disease_info.py`. It is general guidance; check product labels and local advice before treating plants.
 
 ## Reading the confidence score
 
@@ -142,6 +152,8 @@ PlantDoc-AI/
 ├── src/
 │   ├── dataset.py       scanning, cleaning, splitting, DataLoaders
 │   ├── model.py         CNN definition, saving and loading
+│   ├── disease_info.py  symptoms, causes, treatment and prevention for each class
+│   ├── insights.py      photo checks, heatmap overlay, per-class reliability, reports
 │   └── utils.py         seeds, device, plots, class names
 ├── data/plantvillage/   dataset (not in git)
 ├── models/              trained model (not in git)
